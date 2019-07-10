@@ -8,7 +8,7 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 
-namespace CodeStandart
+namespace CodeStandart.Code
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class CREO014_DontUseInnerNameSpaceAnalyzer : DiagnosticAnalyzer
@@ -31,7 +31,7 @@ namespace CodeStandart
             if (!namespaceSymbol.IsGlobalNamespace &
                 !namespaceSymbol.ContainingNamespace.IsGlobalNamespace)
             {
-                context.ReportDiagnostic(Diagnostic.Create(_rule, namespaceSymbol.Locations.First(), namespaceSymbol.Name));
+                //context.ReportDiagnostic(Diagnostic.Create(_rule, namespaceSymbol.Locations.First(), namespaceSymbol.Name));
             }
         }
     }

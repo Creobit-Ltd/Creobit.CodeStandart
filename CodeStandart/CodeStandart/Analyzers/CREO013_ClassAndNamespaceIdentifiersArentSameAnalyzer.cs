@@ -24,14 +24,16 @@ namespace CodeStandart
 
             var parentNamespace = type.ContainingNamespace;
 
-            if (parentNamespace is null)
-                return;
+            if (parentNamespace is null) return;
 
             if (type.Name == parentNamespace.Name)
             {
                 context.ReportDiagnostic(
                     Diagnostic.Create(
-                        _rule, type.Locations[0], new Location[1]{ parentNamespace.Locations[0]}, type.Name));
+                        _rule,
+                        type.Locations[0], 
+                        new Location[1]{parentNamespace.Locations[0]}, 
+                        type.Name));
             }
         }
     }
