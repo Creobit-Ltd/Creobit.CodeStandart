@@ -30,13 +30,17 @@ namespace CodeStandart
 
         private static void AnalyzeNode(SyntaxNodeAnalysisContext context)
         {
-            var declaration = (VariableDeclarationSyntax)context.Node;
+            var declaration = context.Node as VariableDeclarationSyntax;
             var declarator = declaration.Variables.First();
 
             var type = declaration.Type;
 
-            if (type.ChildTokens().FirstOrDefault(token => token.Kind() == SyntaxKind.BoolKeyword) == default)
+            if (type.ChildTokens()
+                    .FirstOrDefault(token => token.Kind() == SyntaxKind.BoolKeyword)
+                == default)
+            {
                 return;
+            }
 
             var name = declarator.Identifier.ToString();
 

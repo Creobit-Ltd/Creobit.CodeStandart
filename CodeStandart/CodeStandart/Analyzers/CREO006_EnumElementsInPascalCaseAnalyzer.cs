@@ -20,20 +20,20 @@ namespace CodeStandart
         private static DiagnosticDescriptor _rule = AnalyzerUtility.CreateDiagnosticDescriptor(
             DiagnosticId, Category, DiagnosticSeverity.Error);
 
-        public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get { return ImmutableArray.Create(_rule); } }
+        public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(_rule);
 
         public override void Initialize(AnalysisContext context) => context.RegisterSyntaxNodeAction(AnalyzeNode, SyntaxKind.EnumMemberDeclaration);
 
         private static void AnalyzeNode(SyntaxNodeAnalysisContext context)
         {
-            var enumMember = (CSharpSyntaxNode)context.Node;
+            var enumMember = context.Node;
 
             var memberText = enumMember.GetFirstToken().ToString();
 
-            var parent = (EnumDeclarationSyntax)enumMember.Parent;
+            var parent = enumMember.Parent as EnumDeclarationSyntax;
             var parentid = parent.Identifier;
 
-            if (memberText != String.Empty && char.IsLower(memberText[0]))
+            if (memberText != String.Empty && char.IsLower(memberText[0]) || memberText[0] == '_')
             {
                 context.ReportDiagnostic(Diagnostic.Create(_rule, enumMember.GetLocation(), enumMember, parentid));
             }

@@ -1,13 +1,7 @@
-using System;
-using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.Linq;
-using System.Threading;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.CodeStyle;
 
 namespace CodeStandart
 {
@@ -19,7 +13,7 @@ namespace CodeStandart
         private const string Category = "Using";
 
         private static DiagnosticDescriptor _rule = AnalyzerUtility.CreateDiagnosticDescriptor(
-            DiagnosticId, Category, DiagnosticSeverity.Warning);
+            DiagnosticId, Category, DiagnosticSeverity.Error);
 
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(_rule);
         
@@ -27,13 +21,12 @@ namespace CodeStandart
 
         private static void AnalyzeNode(SyntaxNodeAnalysisContext context)
         {
-            var attribute = (AttributeListSyntax)context.Node;
+            var attribute = context.Node;
 
             var closingBracket = attribute.GetLastToken();
 
-            //8539 == SyntaxKind.EndOfLineTrivia
             if (closingBracket.TrailingTrivia.Any() &&
-                closingBracket.TrailingTrivia.First().RawKind == 8539)
+                closingBracket.TrailingTrivia.First().Kind() == SyntaxKind.EndOfLineTrivia)
             {
                 return;
             }

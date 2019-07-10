@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.Linq;
-using System.Threading;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 
 namespace CodeStandart
@@ -31,16 +26,13 @@ namespace CodeStandart
 
             var parent = literal.Parent;
 
-            if (parent.Kind() != SyntaxKind.EqualsExpression && parent.Kind() != SyntaxKind.NotEqualsExpression)
+            if (parent.Kind() != SyntaxKind.EqualsExpression &&
+                parent.Kind() != SyntaxKind.NotEqualsExpression)
             {
                 return;
             }
 
-            context.ReportDiagnostic(Diagnostic.Create(
-                _rule,
-                literal.GetLocation(),
-                literal.Parent,
-                literal));
+            context.ReportDiagnostic(Diagnostic.Create(_rule, literal.GetLocation(), literal.Parent, literal));
         }
     }
 }

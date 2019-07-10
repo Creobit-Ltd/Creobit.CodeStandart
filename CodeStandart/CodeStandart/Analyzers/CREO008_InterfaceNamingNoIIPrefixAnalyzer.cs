@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
-using System.Threading;
 using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 
 namespace CodeStandart
@@ -26,10 +21,9 @@ namespace CodeStandart
 
         private static void AnalyzeSymbol(SymbolAnalysisContext context)
         {
-            var symbol = (INamedTypeSymbol)context.Symbol;
+            var symbol = context.Symbol as INamedTypeSymbol;
 
-            if (symbol.TypeKind != TypeKind.Interface)
-                return;
+            if (symbol.TypeKind != TypeKind.Interface) return;
 
             var name = symbol.ToString().Split('.').Last();
 

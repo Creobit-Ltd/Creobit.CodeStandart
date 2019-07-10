@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.Linq;
-using System.Threading;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 
 namespace CodeStandart
@@ -37,38 +32,22 @@ namespace CodeStandart
 
         private static void AnalyzeNode(SyntaxNodeAnalysisContext context)
         {
-            var node = (CSharpSyntaxNode)context.Node;
+            var node = context.Node;
 
-            if (CheckIfHaveEmptyStringBefore(node) ||
-                CheckIfNodeFirstInBlock(node))
+            if (AnalyzerUtility.CheckIfHaveEmptyStringBefore(node) ||
+                AnalyzerUtility.CheckIfNodeFirstInBlock(node))
             {
                 return;
             }
 
-            var diagnosticLocation = node.HasLeadingTrivia ? node
-                .GetLeadingTrivia()
+            var diagnosticLocation = node.HasLeadingTrivia ? 
+                node.GetLeadingTrivia()
                     .Last()
-                        .GetLocation()
-                : node.GetLocation();
+                        .GetLocation():
+                node.GetLocation();
 
             var messageArg = node.Kind();
             context.ReportDiagnostic(Diagnostic.Create(_rule, diagnosticLocation, messageArg));
-        }
-
-        private static bool CheckIfNodeFirstInBlock(CSharpSyntaxNode node)
-        {
-            var parent = node.Parent;
-
-            return parent.ChildNodes().ElementAt(0) == node;
-        }
-
-        private static bool CheckIfHaveEmptyStringBefore(CSharpSyntaxNode node)
-        {
-            //8539 == SyntaxKind.EndOfLineTrivia
-            var EndOfLineTrivias = node.GetLeadingTrivia()
-                .Where(trivia => trivia.RawKind == 8539);
-
-            return EndOfLineTrivias.Count() > 0 ? true : false;
         }
     }
 }
