@@ -13,28 +13,12 @@ namespace CodeStandart
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class Creo007_TrueFalseComparingAnalyzer : DiagnosticAnalyzer
     {
-        public const string DiagnosticId = "Creo007";
-
-        private static readonly LocalizableString Title = new LocalizableResourceString(
-            nameof(Resources.CREO007_AnalyzerTitle),
-            Resources.ResourceManager,
-            typeof(Resources));
-
-        private static readonly LocalizableString MessageFormat = new LocalizableResourceString(
-            nameof(Resources.CREO007_AnalyzerMessageFormat),
-            Resources.ResourceManager,
-            typeof(Resources));
-
-        private static readonly LocalizableString Description = new LocalizableResourceString(
-            nameof(Resources.CREO007_AnalyzerDescription),
-            Resources.ResourceManager,
-            typeof(Resources));
+        public const string DiagnosticId = "CREO007";
 
         private const string Category = "Using";
 
-        private static DiagnosticDescriptor _rule = new DiagnosticDescriptor(
-            DiagnosticId, Title, MessageFormat, Category, DiagnosticSeverity.Warning,
-            isEnabledByDefault: true, description: Description);
+        private static DiagnosticDescriptor _rule = AnalyzerUtility.CreateDiagnosticDescriptor(
+            DiagnosticId, Category, DiagnosticSeverity.Error);
 
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(_rule);
 

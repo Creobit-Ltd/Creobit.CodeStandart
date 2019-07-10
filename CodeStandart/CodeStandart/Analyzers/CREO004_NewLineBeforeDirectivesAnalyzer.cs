@@ -13,26 +13,12 @@ namespace CodeStandart
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class CREO004_NewLineBeforeDirectivesAnalyzer : DiagnosticAnalyzer
     {
-        public const string DiagnosticId = "CREO004_NewLineBeforeDirectives";
-
-        private static readonly LocalizableString Title = new LocalizableResourceString(
-            nameof(Resources.CREO004_AnalyzerTitle),
-            Resources.ResourceManager,
-            typeof(Resources));
-
-        private static readonly LocalizableString MessageFormat = new LocalizableResourceString(
-            nameof(Resources.CREO004_AnalyzerMessageFormat),
-            Resources.ResourceManager,
-            typeof(Resources));
-
-        private static readonly LocalizableString Description = new LocalizableResourceString(
-            nameof(Resources.CREO004_AnalyzerDescription),
-            Resources.ResourceManager,
-            typeof(Resources));
+        public const string DiagnosticId = "CREO004";
 
         private const string Category = "Using";
 
-        private static DiagnosticDescriptor _rule = new DiagnosticDescriptor(DiagnosticId, Title, MessageFormat, Category, DiagnosticSeverity.Error, isEnabledByDefault: true, description: Description);
+        private static DiagnosticDescriptor _rule = AnalyzerUtility.CreateDiagnosticDescriptor(
+            DiagnosticId, Category, DiagnosticSeverity.Warning);
 
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(_rule);
 

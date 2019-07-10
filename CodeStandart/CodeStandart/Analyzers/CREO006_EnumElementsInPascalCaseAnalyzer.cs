@@ -13,33 +13,12 @@ namespace CodeStandart
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class Creo006_EnumElementsInPascalCaseAnalyzer : DiagnosticAnalyzer
     {
-        public const string DiagnosticId = "Creo006";
+        public const string DiagnosticId = "CREO006";
 
-        private static readonly LocalizableString Title = new LocalizableResourceString(
-             nameof(Resources.CREO006_AnalyzerTitle),
-             Resources.ResourceManager,
-             typeof(Resources));
+        private const string Category = "Naming";
 
-        private static readonly LocalizableString MessageFormat = new LocalizableResourceString(
-            nameof(Resources.CREO006_AnalyzerMessageFormat),
-            Resources.ResourceManager,
-            typeof(Resources));
-
-        private static readonly LocalizableString Description = new LocalizableResourceString(
-            nameof(Resources.CREO006_AnalyzerDescription),
-            Resources.ResourceManager,
-            typeof(Resources));
-
-        private const string Category = "Using";
-
-        private static DiagnosticDescriptor _rule = new DiagnosticDescriptor(
-            DiagnosticId,
-            Title,
-            MessageFormat,
-            Category,
-            DiagnosticSeverity.Error,
-            isEnabledByDefault: true,
-            description: Description);
+        private static DiagnosticDescriptor _rule = AnalyzerUtility.CreateDiagnosticDescriptor(
+            DiagnosticId, Category, DiagnosticSeverity.Error);
 
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get { return ImmutableArray.Create(_rule); } }
 

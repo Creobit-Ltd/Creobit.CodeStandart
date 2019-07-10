@@ -16,11 +16,10 @@ namespace CodeStandart
     {
         public const string DiagnosticId = "CREO003";
 
-        private static readonly LocalizableString Title = new LocalizableResourceString(nameof(Resources.CREO003_AnalyzerTitle), Resources.ResourceManager, typeof(Resources));
-        private static readonly LocalizableString MessageFormat = new LocalizableResourceString(nameof(Resources.CREO003_AnalyzerMessageFormat), Resources.ResourceManager, typeof(Resources));
-        private static readonly LocalizableString Description = new LocalizableResourceString(nameof(Resources.CREO003_AnalyzerDescription), Resources.ResourceManager, typeof(Resources));
-        private const string Category = "Usage";
-        private static DiagnosticDescriptor _rule = new DiagnosticDescriptor(DiagnosticId, Title, MessageFormat, Category, DiagnosticSeverity.Error, isEnabledByDefault: true, description: Description);
+        private const string Category = "Using";
+
+        private static DiagnosticDescriptor _rule = AnalyzerUtility.CreateDiagnosticDescriptor(
+            DiagnosticId, Category, DiagnosticSeverity.Warning);
 
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(_rule);
         

@@ -8,6 +8,7 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 
+#pragma warning disable IDE1006
 namespace CodeStandart
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
@@ -15,26 +16,10 @@ namespace CodeStandart
     {
         public const string DiagnosticId = "CREO009";
 
-        private static readonly LocalizableString Title = new LocalizableResourceString(
-            nameof(Resources.CREO009_AnalyzerTitle),
-            Resources.ResourceManager,
-            typeof(Resources));
-
-        private static readonly LocalizableString MessageFormat = new LocalizableResourceString(
-            nameof(Resources.CREO009_AnalyzerMessageFormat),
-            Resources.ResourceManager, 
-            typeof(Resources));
-
-        private static readonly LocalizableString Description = new LocalizableResourceString(
-            nameof(Resources.CREO009_AnalyzerDescription),
-            Resources.ResourceManager,
-            typeof(Resources));
-
         private const string Category = "Naming";
 
-        private static DiagnosticDescriptor _rule = new DiagnosticDescriptor(
-            DiagnosticId, Title, MessageFormat, Category, DiagnosticSeverity.Warning,
-            isEnabledByDefault: true, description: Description);
+        private static DiagnosticDescriptor _rule = AnalyzerUtility.CreateDiagnosticDescriptor(
+            DiagnosticId, Category, DiagnosticSeverity.Warning);
 
         private static ImmutableArray<string> CorrectPrefixes = ImmutableArray.Create
             ("is", "has", "can", "do", "_is", "_has", "_can", "_do");

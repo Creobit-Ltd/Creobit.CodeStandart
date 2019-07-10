@@ -52,11 +52,11 @@ namespace CodeStandart
         private const string Category = "Naming";
 
         private static DiagnosticDescriptor _attributeTypeRule = new DiagnosticDescriptor(
-            DiagnosticId, Title_Attribute, MessageFormat_Attribute, Category, DiagnosticSeverity.Warning, 
+            DiagnosticId, Title_Attribute, MessageFormat_Attribute, Category, DiagnosticSeverity.Error, 
             isEnabledByDefault: true, description: Description_Attribute);
 
         private static DiagnosticDescriptor _nonAttributeTypeRule = new DiagnosticDescriptor(
-            DiagnosticId, Title_NonAttribute, MessageFormat_NonAttribute, Category, DiagnosticSeverity.Warning,
+            DiagnosticId, Title_NonAttribute, MessageFormat_NonAttribute, Category, DiagnosticSeverity.Error,
             isEnabledByDefault: true, description: Description_NonAttribute);
 
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(_attributeTypeRule, _nonAttributeTypeRule);
