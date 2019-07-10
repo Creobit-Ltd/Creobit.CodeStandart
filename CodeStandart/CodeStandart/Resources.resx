@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CREO001_AnalyzerDescription" xml:space="preserve">
+    <value>Одно объявление должно содержать не более одного поля.</value>
+  </data>
+  <data name="CREO001_AnalyzerMessageFormat" xml:space="preserve">
+    <value>Вероятно, объявление  содержит более одного поля.</value>
+  </data>
+  <data name="CREO001_AnalyzerTitle" xml:space="preserve">
+    <value>Разделить объявления для всех полей.</value>
+  </data>
+  <data name="CREO002_AnalyzerDescription" xml:space="preserve">
+    <value>Одно объявление должно содержать не более одной переменной.</value>
+  </data>
+  <data name="CREO002_AnalyzerMessageFormat" xml:space="preserve">
+    <value>Вероятно, объявление  содержит более одной переменной.</value>
+  </data>
+  <data name="CREO002_AnalyzerTitle" xml:space="preserve">
+    <value>Разделить объявления всех переменных</value>
+  </data>
+  <data name="CREO003_AnalyzerDescription" xml:space="preserve">
+    <value>Объявление атрибута должно быть на отдельной строке.</value>
+  </data>
+  <data name="CREO003_AnalyzerMessageFormat" xml:space="preserve">
+    <value>Отсутствует символ перевода строки после использования атрибута</value>
+  </data>
+  <data name="CREO003_AnalyzerTitle" xml:space="preserve">
+    <value>Вывести атрибут в отдельную строку</value>
+  </data>
+  <data name="CREO004_AnalyzerDescription" xml:space="preserve">
+    <value>Перед управляющими операторами должны быть пустая строка</value>
+  </data>
+  <data name="CREO004_AnalyzerMessageFormat" xml:space="preserve">
+    <value>Оператор типа '{0}' не разделён пустой строкой с предыдущим кодом</value>
+  </data>
+  <data name="CREO004_AnalyzerTitle" xml:space="preserve">
+    <value>Перед управляющими операторами должна быть пустая строка</value>
+  </data>
+  <data name="CREO005_AnalyzerDescription" xml:space="preserve">
+    <value>Между блоком using и остальным кодом должны быть пустая строка</value>
+  </data>
+  <data name="CREO005_AnalyzerMessageFormat" xml:space="preserve">
+    <value>Необходимо вставить пустую строку после  '{0}'</value>
+  </data>
+  <data name="CREO005_AnalyzerTitle" xml:space="preserve">
+    <value>Нет пустой строки после блока using</value>
+  </data>
+  <data name="CREO006_AnalyzerDescription" xml:space="preserve">
+    <value>Каждый элемент перечисления должен быть записан в PascalCase</value>
+  </data>
+  <data name="CREO006_AnalyzerMessageFormat" xml:space="preserve">
+    <value>Элемент '{0}' перечисления '{1}' записан не в PascalCase</value>
+  </data>
+  <data name="CREO006_AnalyzerTitle" xml:space="preserve">
+    <value>Элемент перечисления записан не в PascalCase</value>
+  </data>
+  <data name="CREO007_AnalyzerDescription" xml:space="preserve">
+    <value>Нельзя производить явное сравнение с true или false</value>
+  </data>
+  <data name="CREO007_AnalyzerMessageFormat" xml:space="preserve">
+    <value>Выражение '{0}' содержит явное сравнение с '{1}'</value>
+  </data>
+  <data name="CREO007_AnalyzerTitle" xml:space="preserve">
+    <value>Содержится явное сравнение с булевым литералом</value>
+  </data>
+  <data name="CREO008_AnalyzerDescription" xml:space="preserve">
+    <value>В начале идентификатора интерфейса следует избегать повторения символа 'I'</value>
+  </data>
+  <data name="CREO008_AnalyzerMessageFormat" xml:space="preserve">
+    <value>Идентификатор интерфейса '{0}' содержит в начале повторение символа 'I'</value>
+  </data>
+  <data name="CREO008_AnalyzerTitle" xml:space="preserve">
+    <value>Идентификатор интерфейса содержит повторение символа 'I'</value>
+  </data>
+  <data name="CREO009_AnalyzerDescription" xml:space="preserve">
+    <value>Идентификаторы булевых переменных должны иметь один из следующих префиксов: 'is', 'has', 'can', 'do'</value>
+  </data>
+  <data name="CREO009_AnalyzerMessageFormat" xml:space="preserve">
+    <value>Неверное именование переменной '{0}', она должна иметь один из следующих префиксов: 'is', 'has', 'can', 'do'</value>
+  </data>
+  <data name="CREO009_AnalyzerTitle" xml:space="preserve">
+    <value>Переменная имеет неверный префикс</value>
+  </data>
+  <data name="CREO010_AnalyzerDescriptionAttribute" xml:space="preserve">
+    <value>Класс-атрибут должен содержать суффикс 'Attribute'</value>
+  </data>
+  <data name="CREO010_AnalyzerDescriptionNonAttribute" xml:space="preserve">
+    <value>Только классы-атрибуты должны содержать суффикс 'Attribute'</value>
+  </data>
+  <data name="CREO010_AnalyzerMessageFormatAttribute" xml:space="preserve">
+    <value>Идентификатор класса-атрибута '{0}' должен содержать суффикс 'Attribute'</value>
+  </data>
+  <data name="CREO010_AnalyzerMessageFormatNonAttribute" xml:space="preserve">
+    <value>Индентификатор класса '{0}' не должен содержать суффикс 'Attribute', так как класс не является атрибутом</value>
+  </data>
+  <data name="CREO010_AnalyzerTitleAttribute" xml:space="preserve">
+    <value>Идентификатор класса-атрибута не содержит суффикс 'Attribute'</value>
+  </data>
+  <data name="CREO010_AnalyzerTitleNonAttribute" xml:space="preserve">
+    <value>Класс, не являющийся атрибутом, содержит суффикс "Attribute"</value>
+  </data>
+  <data name="CREO011_AnalyzerDescription" xml:space="preserve">
+    <value>Не используйте встроенный делегает Action для событий; Замените его на EventHandler</value>
+  </data>
+  <data name="CREO011_AnalyzerMessageFormat" xml:space="preserve">
+    <value>Событие '{0}' использует делегат Action; Его необходимо заменить на EventHandler</value>
+  </data>
+  <data name="CREO011_AnalyzerTitle" xml:space="preserve">
+    <value>Событие использует недопустимый делегат</value>
+  </data>
+  <data name="CREO012_AnalyzerDescription" xml:space="preserve">
+    <value>Идентификатор делегата для событий должен иметь суффикс EventHandler</value>
+  </data>
+  <data name="CREO012_AnalyzerMessageFormat" xml:space="preserve">
+    <value>Идентификатор  делегата '{0}', используемого для объявления события, должен иметь суффикс EventHandler </value>
+  </data>
+  <data name="CREO012_AnalyzerTitle" xml:space="preserve">
+    <value>Идентификатор делегата события имеет неправильный суффикс</value>
+  </data>
+  <data name="CREO013_AnalyzerDescription" xml:space="preserve">
+    <value>Идентификаторы пространства имён и класса не должны быть одинаковыми</value>
+  </data>
+  <data name="CREO013_AnalyzerMessageFormat" xml:space="preserve">
+    <value>Нарушение правила именования: У класса и пространства имён одинаковые идентификаторы ('{0}')</value>
+  </data>
+  <data name="CREO013_AnalyzerTitle" xml:space="preserve">
+    <value>У класса и пространства имён одинаковые идентификаторы</value>
+  </data>
+  <data name="CREO014_AnalyzerDescription" xml:space="preserve">
+    <value>Пространства имён не должны быть вложенными</value>
+  </data>
+  <data name="CREO014_AnalyzerMessageFormat" xml:space="preserve">
+    <value>Пространство имён '{0}' является вложенным.</value>
+  </data>
+  <data name="CREO014_AnalyzerTitle" xml:space="preserve">
+    <value>Вложенное пространство имён</value>
+  </data>
+  <data name="CREO015_AnalyzerDescription" xml:space="preserve">
+    <value>Все не вложенные классы должны находиться в разных файлах.</value>
+  </data>
+  <data name="CREO015_AnalyzerMessageFormat" xml:space="preserve">
+    <value>Классы должны быть в разных файлах</value>
+  </data>
+  <data name="CREO015_AnalyzerTitle" xml:space="preserve">
+    <value>Более одного класса в файле</value>
+  </data>
+  <data name="CREO016_AnalyzerDescription" xml:space="preserve">
+    <value>Каждый элемент перечисления должен находиться на отдельной строке.</value>
+  </data>
+  <data name="CREO016_AnalyzerMessageFormat" xml:space="preserve">
+    <value>Не все элементы перечисления '{0}' находятся на разных строках.</value>
+  </data>
+  <data name="CREO016_AnalyzerTitle" xml:space="preserve">
+    <value>Не все элементы перечисления находятся на отдельных строках.</value>
+  </data>
+</root>
