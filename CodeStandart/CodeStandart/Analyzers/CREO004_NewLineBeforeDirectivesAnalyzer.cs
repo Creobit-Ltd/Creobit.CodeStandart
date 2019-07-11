@@ -40,14 +40,7 @@ namespace CodeStandart
                 return;
             }
 
-            var diagnosticLocation = node.HasLeadingTrivia ? 
-                node.GetLeadingTrivia()
-                    .Last()
-                        .GetLocation():
-                node.GetLocation();
-
-            var messageArg = node.Kind();
-            context.ReportDiagnostic(Diagnostic.Create(_rule, diagnosticLocation, messageArg));
+            context.ReportDiagnostic(Diagnostic.Create(_rule, node.GetLocation(), node.Kind()));
         }
     }
 }

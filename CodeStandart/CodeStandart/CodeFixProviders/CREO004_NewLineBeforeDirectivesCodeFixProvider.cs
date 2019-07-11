@@ -23,7 +23,7 @@ namespace CodeStandart.CodeFixProviders
     public class NewLineBeforeDirectivesCodeFixProvider : CodeFixProvider
     {
         public sealed override ImmutableArray<string> FixableDiagnosticIds
-            => ImmutableArray.Create(CREO005_NewLineAfterUsingBlockAnalyzer.DiagnosticId);
+            => ImmutableArray.Create(CREO004_NewLineBeforeDirectivesAnalyzer.DiagnosticId);
 
         public sealed override FixAllProvider GetFixAllProvider() => WellKnownFixAllProviders.BatchFixer;
 
@@ -50,10 +50,19 @@ namespace CodeStandart.CodeFixProviders
                 diagnostic);
         }
 
-        private async Task<Document> AddNewLineBefore(Document document, StatementSyntax statement, CancellationToken cancellationToken)
+        private async Task<Document> AddNewLineBefore(
+            Document document,
+            StatementSyntax statement,
+            CancellationToken cancellationToken)
         {
+            var leadingTriviaWithEOL = statement.GetLeadingTrivia().Insert(0, SyntaxFactory.EndOfLine(Environment.NewLine));
+
+            var newStatement = statement.WithLeadingTrivia(leadingTriviaWithEOL);
+
             var root = await document.GetSyntaxRootAsync(cancellationToken);
-            return document;
+            root = root.ReplaceNode(statement, newStatement);
+
+            return document.WithSyntaxRoot(root);
         }
     }
 }
