@@ -206,7 +206,7 @@ namespace CodeStandart {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Элемент &apos;{0}&apos; перечисления &apos;{1}&apos; записан не в PascalCase.
+        ///   Ищет локализованную строку, похожую на Элемент {0} перечисления &apos;{1}&apos; записан не в PascalCase.
         /// </summary>
         public static string CREO006_AnalyzerMessageFormat {
             get {

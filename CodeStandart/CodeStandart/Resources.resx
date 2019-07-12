@@ -166,7 +166,7 @@
     <value>Каждый элемент перечисления должен быть записан в PascalCase</value>
   </data>
   <data name="CREO006_AnalyzerMessageFormat" xml:space="preserve">
-    <value>Элемент '{0}' перечисления '{1}' записан не в PascalCase</value>
+    <value>Элемент {0} перечисления '{1}' записан не в PascalCase</value>
   </data>
   <data name="CREO006_AnalyzerTitle" xml:space="preserve">
     <value>Элемент перечисления записан не в PascalCase</value>

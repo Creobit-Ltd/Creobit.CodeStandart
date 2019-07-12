@@ -1,12 +1,9 @@
-using System;
-using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.Linq;
-using System.Threading;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
+using CodeStandart.Extensions;
 
 namespace CodeStandart
 {
@@ -26,16 +23,13 @@ namespace CodeStandart
 
         private static void AnalyzeNode(SyntaxNodeAnalysisContext context)
         {
-            var enumMember = context.Node;
+            var member = context.Node as EnumMemberDeclarationSyntax;
 
-            var memberText = enumMember.GetFirstToken().ToString();
-
-            var parent = enumMember.Parent as EnumDeclarationSyntax;
-            var parentid = parent.Identifier;
-
-            if (memberText != String.Empty && char.IsLower(memberText[0]) || memberText[0] == '_')
+            if (!member.IsPascal())
             {
-                context.ReportDiagnostic(Diagnostic.Create(_rule, enumMember.GetLocation(), enumMember, parentid));
+                var parent = member.Parent as EnumDeclarationSyntax;
+
+                context.ReportDiagnostic(Diagnostic.Create(_rule, member.GetLocation(), member.Identifier, parent.Identifier));
             }
         }
     }
