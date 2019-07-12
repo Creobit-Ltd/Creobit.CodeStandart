@@ -32,7 +32,7 @@ namespace CodeStandart
                 return;
             }
 
-            context.ReportDiagnostic(Diagnostic.Create(_rule, literal.GetLocation(), literal.Parent, literal));
+            context.ReportDiagnostic(Diagnostic.Create(_rule, literal.Parent.GetLocation(), literal.Parent, literal));
         }
     }
 }
