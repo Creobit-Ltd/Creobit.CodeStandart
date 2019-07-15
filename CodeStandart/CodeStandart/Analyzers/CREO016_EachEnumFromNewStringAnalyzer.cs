@@ -19,15 +19,13 @@ namespace CodeStandart
 
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(_rule);
 
-        public override void Initialize(AnalysisContext context) => context.RegisterSyntaxNodeAction(Analyze, SyntaxKind.EnumMemberDeclaration);
+        public override void Initialize(AnalysisContext context) => context.RegisterSyntaxNodeAction(Analyze, SyntaxKind.EnumDeclaration);
 
         private static void Analyze(SyntaxNodeAnalysisContext context)
         {
-            var enumMember = context.Node;
+            var _enum = context.Node as EnumDeclarationSyntax;
 
-            var parent = enumMember.Parent as EnumDeclarationSyntax;
-
-            var commaTokens = parent
+            var commaTokens = _enum
                 .ChildTokens()
                     .Where(t => t.Kind() == SyntaxKind.CommaToken);
 
@@ -35,7 +33,7 @@ namespace CodeStandart
                 comma => !comma.TrailingTrivia.Any(
                     trivia => trivia.Kind() == SyntaxKind.EndOfLineTrivia)))
             {
-                context.ReportDiagnostic(Diagnostic.Create(_rule, enumMember.GetLocation(), parent.Identifier));
+                context.ReportDiagnostic(Diagnostic.Create(_rule, _enum.GetLocation(), _enum.Identifier));
             }
         }
     }
