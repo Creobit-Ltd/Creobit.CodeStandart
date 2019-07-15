@@ -22,16 +22,15 @@ namespace CodeStandart.Code
 
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(_rule);
 
-        public override void Initialize(AnalysisContext context) => context.RegisterSymbolAction(AnalyzeSymbol, SymbolKind.Namespace);
+        public override void Initialize(AnalysisContext context) => context.RegisterSyntaxNodeAction(AnalyzeNode, SyntaxKind.NamespaceDeclaration);
 
-        private static void AnalyzeSymbol(SymbolAnalysisContext context)
+        private static void AnalyzeNode(SyntaxNodeAnalysisContext context)
         {
-            var namespaceSymbol = context.Symbol as INamespaceSymbol;
+            var namespaceNode = context.Node as NamespaceDeclarationSyntax;
 
-            if (!namespaceSymbol.IsGlobalNamespace &
-                !namespaceSymbol.ContainingNamespace.IsGlobalNamespace)
+            if (namespaceNode.Parent.Kind() == SyntaxKind.NamespaceDeclaration)
             {
-                //context.ReportDiagnostic(Diagnostic.Create(_rule, namespaceSymbol.Locations.First(), namespaceSymbol.Name));
+                context.ReportDiagnostic(Diagnostic.Create(_rule, namespaceNode.GetLocation(), namespaceNode.Name));
             }
         }
     }
