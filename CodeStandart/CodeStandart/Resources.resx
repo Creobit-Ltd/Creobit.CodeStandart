@@ -270,4 +270,13 @@
   <data name="CREO016_AnalyzerTitle" xml:space="preserve">
     <value>Не все элементы перечисления находятся на отдельных строках.</value>
   </data>
+  <data name="CREO017_AnalyzerDescription" xml:space="preserve">
+    <value>Нижнее подчёркивание не должно использоваться в качестве разделителя слов в идентификаторах</value>
+  </data>
+  <data name="CREO017_AnalyzerMessageFormat" xml:space="preserve">
+    <value>Нарушение правила именования: Идентификатор '{0}' содержит нижнее подчёркивание в качестве разделителя слов</value>
+  </data>
+  <data name="CREO017_AnalyzerTitle" xml:space="preserve">
+    <value>В идентфикаторах нельзя использовать нижнее подчёркивание для разделения слов.</value>
+  </data>
 </root>

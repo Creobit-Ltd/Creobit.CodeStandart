@@ -519,5 +519,32 @@ namespace CodeStandart {
                 return ResourceManager.GetString("CREO016_AnalyzerTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Нижнее подчёркивание не должно использоваться в качестве разделителя слов в идентификаторах.
+        /// </summary>
+        public static string CREO017_AnalyzerDescription {
+            get {
+                return ResourceManager.GetString("CREO017_AnalyzerDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Нарушение правила именования: Идентификатор &apos;{0}&apos; содержит нижнее подчёркивание в качестве разделителя слов.
+        /// </summary>
+        public static string CREO017_AnalyzerMessageFormat {
+            get {
+                return ResourceManager.GetString("CREO017_AnalyzerMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на В идентфикаторах нельзя использовать нижнее подчёркивание для разделения слов..
+        /// </summary>
+        public static string CREO017_AnalyzerTitle {
+            get {
+                return ResourceManager.GetString("CREO017_AnalyzerTitle", resourceCulture);
+            }
+        }
     }
 }
