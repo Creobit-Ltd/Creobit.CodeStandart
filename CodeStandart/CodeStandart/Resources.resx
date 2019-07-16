@@ -288,4 +288,13 @@
   <data name="CREO018_AnalyzerTitle" xml:space="preserve">
     <value>Не использовать для элемента перечисления тот же идентификатор, что у перечисления</value>
   </data>
+  <data name="CREO019_AnalyzerDescription" xml:space="preserve">
+    <value>Generic-параметры должны именоваться следующим образом: если generic только 1, для него используется идентификатор 'T', иначе символ 'T' и уточняющее имя ("TValue")</value>
+  </data>
+  <data name="CREO019_AnalyzerMessageFormat" xml:space="preserve">
+    <value>Нарушение именования Generic-типа в '{0}': если generic только 1, для него используется идентификатор 'T', иначе символ 'T' и уточняющее имя ("TValue")</value>
+  </data>
+  <data name="CREO019_AnalyzerTitle" xml:space="preserve">
+    <value>Именование Generic'ов</value>
+  </data>
 </root>

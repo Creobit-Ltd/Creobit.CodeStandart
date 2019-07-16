@@ -573,5 +573,32 @@ namespace CodeStandart {
                 return ResourceManager.GetString("CREO018_AnalyzerTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Generic-параметры должны именоваться следующим образом: если generic только 1, для него используется идентификатор &apos;T&apos;, иначе символ &apos;T&apos; и уточняющее имя (&quot;TValue&quot;).
+        /// </summary>
+        public static string CREO019_AnalyzerDescription {
+            get {
+                return ResourceManager.GetString("CREO019_AnalyzerDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Нарушение именования Generic-типа в &apos;{0}&apos;: если generic только 1, для него используется идентификатор &apos;T&apos;, иначе символ &apos;T&apos; и уточняющее имя (&quot;TValue&quot;).
+        /// </summary>
+        public static string CREO019_AnalyzerMessageFormat {
+            get {
+                return ResourceManager.GetString("CREO019_AnalyzerMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Именование Generic&apos;ов.
+        /// </summary>
+        public static string CREO019_AnalyzerTitle {
+            get {
+                return ResourceManager.GetString("CREO019_AnalyzerTitle", resourceCulture);
+            }
+        }
     }
 }
