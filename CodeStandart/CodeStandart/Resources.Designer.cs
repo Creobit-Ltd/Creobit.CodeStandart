@@ -296,7 +296,7 @@ namespace CodeStandart {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Переменная имеет неверный префикс.
+        ///   Ищет локализованную строку, похожую на Булева переменная имеет неверный префикс.
         /// </summary>
         public static string CREO009_AnalyzerTitle {
             get {
@@ -332,7 +332,7 @@ namespace CodeStandart {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Индентификатор класса &apos;{0}&apos; не должен содержать суффикс &apos;Attribute&apos;, так как класс не является атрибутом.
+        ///   Ищет локализованную строку, похожую на Идентификатор класса &apos;{0}&apos; не должен содержать суффикс &apos;Attribute&apos;, так как класс не является атрибутом.
         /// </summary>
         public static string CREO010_AnalyzerMessageFormatNonAttribute {
             get {
@@ -368,7 +368,7 @@ namespace CodeStandart {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Событие &apos;{0}&apos; использует делегат Action; Его необходимо заменить на EventHandler.
+        ///   Ищет локализованную строку, похожую на Событие &apos;{0}&apos; использует делегат Action; Его необходимо заменить на EventHandler или свой делегат с таким суффиксом.
         /// </summary>
         public static string CREO011_AnalyzerMessageFormat {
             get {

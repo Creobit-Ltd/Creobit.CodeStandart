@@ -196,7 +196,7 @@
     <value>Неверное именование переменной '{0}', она должна иметь один из следующих префиксов: 'is', 'has', 'can', 'do'</value>
   </data>
   <data name="CREO009_AnalyzerTitle" xml:space="preserve">
-    <value>Переменная имеет неверный префикс</value>
+    <value>Булева переменная имеет неверный префикс</value>
   </data>
   <data name="CREO010_AnalyzerDescriptionAttribute" xml:space="preserve">
     <value>Класс-атрибут должен содержать суффикс 'Attribute'</value>
@@ -208,7 +208,7 @@
     <value>Идентификатор класса-атрибута '{0}' должен содержать суффикс 'Attribute'</value>
   </data>
   <data name="CREO010_AnalyzerMessageFormatNonAttribute" xml:space="preserve">
-    <value>Индентификатор класса '{0}' не должен содержать суффикс 'Attribute', так как класс не является атрибутом</value>
+    <value>Идентификатор класса '{0}' не должен содержать суффикс 'Attribute', так как класс не является атрибутом</value>
   </data>
   <data name="CREO010_AnalyzerTitleAttribute" xml:space="preserve">
     <value>Идентификатор класса-атрибута не содержит суффикс 'Attribute'</value>
@@ -220,7 +220,7 @@
     <value>Не используйте встроенный делегает Action для событий; Замените его на EventHandler</value>
   </data>
   <data name="CREO011_AnalyzerMessageFormat" xml:space="preserve">
-    <value>Событие '{0}' использует делегат Action; Его необходимо заменить на EventHandler</value>
+    <value>Событие '{0}' использует делегат Action; Его необходимо заменить на EventHandler или свой делегат с таким суффиксом</value>
   </data>
   <data name="CREO011_AnalyzerTitle" xml:space="preserve">
     <value>Событие использует недопустимый делегат</value>

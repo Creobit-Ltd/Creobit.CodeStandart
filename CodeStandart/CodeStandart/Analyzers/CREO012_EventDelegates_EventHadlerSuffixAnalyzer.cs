@@ -31,7 +31,9 @@ namespace CodeStandart.Analyzers
 
             if (delegateIdentifierToken == null) return;
 
-            if (!delegateIdentifierToken.Text.EndsWith("EventHandler"))
+            var identifier = delegateIdentifierToken.Text;
+
+            if (!identifier.EndsWith("EventHandler") & identifier != "Action")
             {
                 context.ReportDiagnostic(Diagnostic.Create(_rule, eventDeclaration.GetLocation(), delegateIdentifierToken.Text));
             }
