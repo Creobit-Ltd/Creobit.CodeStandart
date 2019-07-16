@@ -546,5 +546,32 @@ namespace CodeStandart {
                 return ResourceManager.GetString("CREO017_AnalyzerTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Идентификаторы перечисления и его элементов не должны совпадать.
+        /// </summary>
+        public static string CREO018_AnalyzerDescription {
+            get {
+                return ResourceManager.GetString("CREO018_AnalyzerDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Имя перечисления совпадает с именем его элемента (&apos;{0}&apos;).
+        /// </summary>
+        public static string CREO018_AnalyzerMessageFormat {
+            get {
+                return ResourceManager.GetString("CREO018_AnalyzerMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Не использовать для элемента перечисления тот же идентификатор, что у перечисления.
+        /// </summary>
+        public static string CREO018_AnalyzerTitle {
+            get {
+                return ResourceManager.GetString("CREO018_AnalyzerTitle", resourceCulture);
+            }
+        }
     }
 }

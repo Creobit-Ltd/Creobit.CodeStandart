@@ -279,4 +279,13 @@
   <data name="CREO017_AnalyzerTitle" xml:space="preserve">
     <value>В идентфикаторах нельзя использовать нижнее подчёркивание для разделения слов.</value>
   </data>
+  <data name="CREO018_AnalyzerDescription" xml:space="preserve">
+    <value>Идентификаторы перечисления и его элементов не должны совпадать</value>
+  </data>
+  <data name="CREO018_AnalyzerMessageFormat" xml:space="preserve">
+    <value>Имя перечисления совпадает с именем его элемента ('{0}')</value>
+  </data>
+  <data name="CREO018_AnalyzerTitle" xml:space="preserve">
+    <value>Не использовать для элемента перечисления тот же идентификатор, что у перечисления</value>
+  </data>
 </root>
