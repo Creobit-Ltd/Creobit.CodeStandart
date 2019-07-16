@@ -3,8 +3,9 @@ using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Diagnostics;
+using CodeStandart.Utilities;
 
-namespace CodeStandart
+namespace CodeStandart.Analyzers
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class CREO015_ClassesInDifferentFilesAnalyzer : DiagnosticAnalyzer

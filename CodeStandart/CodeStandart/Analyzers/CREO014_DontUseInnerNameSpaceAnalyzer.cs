@@ -7,8 +7,9 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
+using CodeStandart.Utilities;
 
-namespace CodeStandart.Code
+namespace CodeStandart.Analyzers
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class CREO014_DontUseInnerNameSpaceAnalyzer : DiagnosticAnalyzer

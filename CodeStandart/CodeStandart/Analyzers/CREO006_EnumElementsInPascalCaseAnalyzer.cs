@@ -4,8 +4,9 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 using CodeStandart.Extensions;
+using CodeStandart.Utilities;
 
-namespace CodeStandart
+namespace CodeStandart.Analyzers
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class Creo006_EnumElementsInPascalCaseAnalyzer : DiagnosticAnalyzer

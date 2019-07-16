@@ -2,7 +2,7 @@
 using Microsoft.CodeAnalysis.CSharp;
 using System.Linq;
 
-namespace CodeStandart
+namespace CodeStandart.Utilities
 {
     static internal class AnalyzerUtility
     {

@@ -7,9 +7,10 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
+using CodeStandart.Utilities;
 
 #pragma warning disable IDE1006
-namespace CodeStandart
+namespace CodeStandart.Analyzers
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class CREO009_BooleanVariablesNamingAnalyzer : DiagnosticAnalyzer

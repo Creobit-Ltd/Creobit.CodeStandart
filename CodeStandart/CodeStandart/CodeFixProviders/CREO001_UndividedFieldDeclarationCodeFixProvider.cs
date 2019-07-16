@@ -9,8 +9,9 @@ using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.CodeActions;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using CodeStandart.Analyzers;
 
-namespace CodeStandart
+namespace CodeStandart.CodeFixProviders
 {
     [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(UndividedFieldDeclarationCodeFixProvider)), Shared]
     public class UndividedFieldDeclarationCodeFixProvider : CodeFixProvider

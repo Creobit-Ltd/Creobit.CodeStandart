@@ -2,8 +2,9 @@ using System.Collections.Immutable;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Diagnostics;
+using CodeStandart.Utilities;
 
-namespace CodeStandart
+namespace CodeStandart.Analyzers
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class Creo007_TrueFalseComparingAnalyzer : DiagnosticAnalyzer

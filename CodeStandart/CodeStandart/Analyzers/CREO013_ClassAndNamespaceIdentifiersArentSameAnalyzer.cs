@@ -1,8 +1,9 @@
 using System.Collections.Immutable;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
+using CodeStandart.Utilities;
 
-namespace CodeStandart
+namespace CodeStandart.Analyzers
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class CREO013_ClassAndNamespaceIdentifiersArentSameAnalyzer : DiagnosticAnalyzer

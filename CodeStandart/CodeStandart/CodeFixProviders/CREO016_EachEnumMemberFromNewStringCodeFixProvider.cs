@@ -10,8 +10,9 @@ using Microsoft.CodeAnalysis.CodeActions;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Shared.Utilities;
+using CodeStandart.Analyzers;
 
-namespace CodeStandart
+namespace CodeStandart.CodeFixProviders
 {
     [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(UndividedLocalDeclarationCodeFixProvider)), Shared]
     public class EachEnumMemberFromNewStringCodeFixProvider : CodeFixProvider
@@ -40,17 +41,19 @@ namespace CodeStandart
                 diagnostic);
         }
 
+        
+
         private async Task<Document> MakeLinesForEnumMembers(Document document,
-            EnumDeclarationSyntax _enum,
+            EnumDeclarationSyntax enumDeclaration,
             CancellationToken cancellationToken)
         {
-            var members = _enum.Members;
+            var members = enumDeclaration.Members;
 
             var newEnum = SyntaxFactory.EnumDeclaration(
-                _enum.AttributeLists,
-                _enum.Modifiers,
-                _enum.Identifier,
-                _enum.BaseList,
+                enumDeclaration.AttributeLists,
+                enumDeclaration.Modifiers,
+                enumDeclaration.Identifier,
+                enumDeclaration.BaseList,
                 new SeparatedSyntaxList<EnumMemberDeclarationSyntax>());
 
             foreach (var member in members)
@@ -59,7 +62,7 @@ namespace CodeStandart
             }
             
             var root = await document.GetSyntaxRootAsync(cancellationToken).ConfigureAwait(false);
-            var newRoot = root.ReplaceNode(_enum, newEnum);
+            var newRoot = root.ReplaceNode(enumDeclaration, newEnum);
 
             return document.WithSyntaxRoot(newRoot);
         }
