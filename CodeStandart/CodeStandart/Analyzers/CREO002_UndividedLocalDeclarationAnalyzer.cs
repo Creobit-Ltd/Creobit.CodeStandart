@@ -27,16 +27,17 @@ namespace CodeStandart.Analyzers
         {
             var declaration = context.Node;
 
-            if (declaration.Parent is LocalDeclarationStatementSyntax) return;
-
-            var declarationChild = declaration.ChildNodes();
-
-            var declarators = declaration.ChildNodes().Where(
-                node => node is VariableDeclarationSyntax).ToList();
-
-            if (declarators.Count > 1)
+            if (declaration.Parent is LocalDeclarationStatementSyntax)
             {
-                context.ReportDiagnostic(Diagnostic.Create(_rule, context.Node.GetLocation()));
+                var declarationChild = declaration.ChildNodes();
+
+                var declarators = declaration.DescendantNodes().Where(
+                    node => node is VariableDeclaratorSyntax).ToList();
+
+                if (declarators.Count > 1)
+                {
+                    context.ReportDiagnostic(Diagnostic.Create(_rule, context.Node.GetLocation()));
+                }
             }
         }
     }

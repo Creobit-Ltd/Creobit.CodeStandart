@@ -53,7 +53,7 @@ namespace CodeStandart.CodeFixProviders
 
             var newStatement = statement.WithLeadingTrivia(leadingTriviaWithEOL);
 
-            var root = await document.GetSyntaxRootAsync(cancellationToken);
+            var root = await document.GetSyntaxRootAsync(cancellationToken).ConfigureAwait(false);
             root = root.ReplaceNode(statement, newStatement);
 
             return document.WithSyntaxRoot(root);

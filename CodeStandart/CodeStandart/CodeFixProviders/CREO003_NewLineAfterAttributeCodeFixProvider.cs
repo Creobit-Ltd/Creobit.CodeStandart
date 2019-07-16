@@ -57,7 +57,7 @@ namespace CodeStandart.CodeFixProviders
                     .GetTrailingTrivia()
                         .Add(leadingWhitespace));
 
-            var root = await document.GetSyntaxRootAsync(cancellationToken);
+            var root = await document.GetSyntaxRootAsync(cancellationToken).ConfigureAwait(false);
             root = root.ReplaceNode(attribute, newAttribute);
 
             return document.WithSyntaxRoot(root);

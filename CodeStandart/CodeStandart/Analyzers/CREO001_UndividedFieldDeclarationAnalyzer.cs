@@ -28,8 +28,8 @@ namespace CodeStandart.Analyzers
 
             if (declaration.Parent.Kind() != SyntaxKind.FieldDeclaration) return;
 
-            var declarators = declaration.ChildNodes().Where(
-                node => node is VariableDeclarationSyntax)
+            var declarators = declaration.DescendantNodes().Where(
+                node => node is VariableDeclaratorSyntax)
                     .ToList();
 
             if (declarators.Count > 1)

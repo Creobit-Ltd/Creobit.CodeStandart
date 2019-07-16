@@ -47,7 +47,7 @@ namespace CodeStandart.CodeFixProviders
                 .WithTrailingTrivia(
                     usingDirective.GetTrailingTrivia().Add(SyntaxFactory.EndOfLine(Environment.NewLine)));
 
-            var root = await document.GetSyntaxRootAsync(cancellationToken);
+            var root = await document.GetSyntaxRootAsync(cancellationToken).ConfigureAwait(false);
             root = root.ReplaceNode(usingDirective, newUsingDirective);
 
             return document.WithSyntaxRoot(root);

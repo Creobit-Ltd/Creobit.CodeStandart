@@ -54,7 +54,7 @@ namespace CodeStandart.CodeFixProviders
             var leftPart = expression.Left;
             var rigthPart = expression.Right;
 
-            var root = await document.GetSyntaxRootAsync(cancellationToken);
+            var root = await document.GetSyntaxRootAsync(cancellationToken).ConfigureAwait(false);
 
             if (leftPart.Kind() == SyntaxKind.FalseLiteralExpression ||
                 leftPart.Kind() == SyntaxKind.TrueLiteralExpression)

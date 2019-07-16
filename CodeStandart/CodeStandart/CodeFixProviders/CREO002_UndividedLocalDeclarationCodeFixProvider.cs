@@ -85,10 +85,10 @@ namespace CodeStandart.CodeFixProviders
                         .WithLeadingTrivia(
                             newDeclarations.IndexOf(variableDeclaration) > 0 ? 
                                 new SyntaxTriviaList() {leadingTrivia.Last()} : leadingTrivia)
-                        .WithTrailingTrivia(SyntaxFactory.EndOfLine((Environment.NewLine))));
+                        .WithTrailingTrivia(SyntaxFactory.EndOfLine(Environment.NewLine)));
             }
 
-            var oldRoot = await document.GetSyntaxRootAsync(cancellationToken);
+            var oldRoot = await document.GetSyntaxRootAsync(cancellationToken).ConfigureAwait(false);
             var newRoot = oldRoot.ReplaceNode(originalLocalDeclaration, newLocalDeclarations);
 
             return document.WithSyntaxRoot(newRoot);

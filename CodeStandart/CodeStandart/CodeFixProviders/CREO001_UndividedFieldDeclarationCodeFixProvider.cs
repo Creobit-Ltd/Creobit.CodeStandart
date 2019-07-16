@@ -16,7 +16,7 @@ namespace CodeStandart.CodeFixProviders
     [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(UndividedFieldDeclarationCodeFixProvider)), Shared]
     public class UndividedFieldDeclarationCodeFixProvider : CodeFixProvider
     {
-        private const string Title = "Разделить все объявления переменных";
+        private const string Title = "Разделить поля";
 
         public sealed override ImmutableArray<string> FixableDiagnosticIds
         {
@@ -87,14 +87,17 @@ namespace CodeStandart.CodeFixProviders
                         .WithLeadingTrivia(
                             newDeclarations.IndexOf(variableDeclaration) > 0 ?
                                 new SyntaxTriviaList()
-                                    { SyntaxFactory.EndOfLine(Environment.NewLine), leadingTrivia.Last() } : leadingTrivia)
+                                {
+                                    SyntaxFactory.EndOfLine(Environment.NewLine), leadingTrivia.Last()
+                                } 
+                                : leadingTrivia)
                         .WithTrailingTrivia(
                             newDeclarations.IndexOf(variableDeclaration) !=  newDeclarations.IndexOf(newDeclarations.Last()) ? 
                                 newField.GetTrailingTrivia()
                                     .Add(SyntaxFactory.EndOfLine(Environment.NewLine)) : newField.GetTrailingTrivia()));            
             }
 
-            var oldRoot = await document.GetSyntaxRootAsync(cancellationToken);
+            var oldRoot = await document.GetSyntaxRootAsync(cancellationToken).ConfigureAwait(false);
             var newRoot = oldRoot.ReplaceNode(originalField, newFields);
 
             return document.WithSyntaxRoot(newRoot);

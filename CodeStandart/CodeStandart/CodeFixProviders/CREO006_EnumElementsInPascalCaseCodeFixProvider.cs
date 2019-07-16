@@ -52,7 +52,8 @@ namespace CodeStandart.CodeFixProviders
             EnumMemberDeclarationSyntax member,
             CancellationToken cancellationToken)
         {
-            var semanticModel = await document.GetSemanticModelAsync();
+            var semanticModel = await document.GetSemanticModelAsync().ConfigureAwait(false);
+            ;
 
             var originalSolution = document.Project.Solution;
 
