@@ -24,12 +24,11 @@ namespace CodeStandart.Analyzers
 
         private static void AnalyzeNode(SyntaxNodeAnalysisContext context)
         {
-            var declaration = context.Node;
+            var declaration = context.Node as VariableDeclarationSyntax;
 
             if (declaration.Parent.Kind() != SyntaxKind.FieldDeclaration) return;
 
-            var declarators = declaration.DescendantNodes().Where(
-                node => node is VariableDeclaratorSyntax)
+            var declarators = declaration.Variables
                     .ToList();
 
             if (declarators.Count > 1)

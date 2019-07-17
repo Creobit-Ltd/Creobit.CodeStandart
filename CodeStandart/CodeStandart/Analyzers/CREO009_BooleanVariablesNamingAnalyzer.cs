@@ -36,9 +36,16 @@ namespace CodeStandart.Analyzers
 
             var type = declaration.Type;
 
-            if (type.ChildTokens()
-                    .FirstOrDefault(token => token.Kind() == SyntaxKind.BoolKeyword)
-                == default)
+            if (!type.ChildTokens().Any(token => token.Kind() == SyntaxKind.BoolKeyword)
+                &&
+                !declaration.DescendantNodes().Any(node => node.Kind() == SyntaxKind.FalseLiteralExpression)
+                &&
+                !declaration.DescendantNodes().Any(node => node.Kind() == SyntaxKind.TrueLiteralExpression))
+            {
+                return;
+            }
+
+            if (declaration.DescendantNodes().Any(node => node.Kind() == SyntaxKind.InvocationExpression))
             {
                 return;
             }

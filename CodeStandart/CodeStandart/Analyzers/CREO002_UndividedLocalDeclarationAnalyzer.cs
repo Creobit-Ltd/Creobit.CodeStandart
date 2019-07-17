@@ -25,14 +25,18 @@ namespace CodeStandart.Analyzers
 
         private static void AnalyzeNode(SyntaxNodeAnalysisContext context)
         {
-            var declaration = context.Node;
+            var declaration = context.Node as VariableDeclarationSyntax;
 
             if (declaration.Parent is LocalDeclarationStatementSyntax)
             {
+                if (declaration.DescendantNodes().Any(node => node.Kind() == SyntaxKind.InvocationExpression))
+                {
+                    return;
+                }
+
                 var declarationChild = declaration.ChildNodes();
 
-                var declarators = declaration.DescendantNodes().Where(
-                    node => node is VariableDeclaratorSyntax).ToList();
+                var declarators = declaration.Variables.ToList();
 
                 if (declarators.Count > 1)
                 {

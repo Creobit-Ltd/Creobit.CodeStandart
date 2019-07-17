@@ -29,37 +29,19 @@ namespace CodeStandart.Analyzers
 
             var genericTypes = genericTypesContainer.Parameters;
 
-            if (genericTypes.Count == 0) return;
-
-            switch (genericTypes.Count)
+            if (genericTypes.Count == 0)
             {
-                case 0:
-                    return;
+                return;
+            }
 
-                case 1:
-                    {
-                        if (genericTypes.First().Identifier.ValueText != "T")
-                        {
-                            context.ReportDiagnostic(Diagnostic.Create(_rule, genericTypesContainer.GetLocation(), genericTypesContainer));
-                        }
+            foreach (var type in genericTypes)
+            {
+                if (type.Identifier.ValueText != string.Empty && type.Identifier.ValueText[0] != 'T')
+                {
+                    context.ReportDiagnostic(Diagnostic.Create(_rule, genericTypesContainer.GetLocation(), genericTypesContainer));
 
-                        break;
-                    }
-
-                default:
-                    {
-                        foreach (var type in genericTypes)
-                        {
-                            if (type.Identifier.ValueText != string.Empty && type.Identifier.ValueText[0] != 'T')
-                            {
-                                context.ReportDiagnostic(Diagnostic.Create(_rule, genericTypesContainer.GetLocation(), genericTypesContainer));
-
-                                break;
-                            }    
-                        }
-
-                        break;
-                    }
+                    break;
+                }
             }
         }
     }
