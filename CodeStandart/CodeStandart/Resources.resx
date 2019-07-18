@@ -297,4 +297,13 @@
   <data name="CREO019_AnalyzerTitle" xml:space="preserve">
     <value>Именование Generic'ов</value>
   </data>
+  <data name="Test_AnalyzerDescription" xml:space="preserve">
+    <value>Тестовый анализатор</value>
+  </data>
+  <data name="Test_AnalyzerMessageFormat" xml:space="preserve">
+    <value>Debug: '{0}'</value>
+  </data>
+  <data name="Test_AnalyzerTitle" xml:space="preserve">
+    <value>Debug</value>
+  </data>
 </root>

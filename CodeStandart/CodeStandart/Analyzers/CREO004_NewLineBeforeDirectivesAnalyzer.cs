@@ -3,6 +3,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Diagnostics;
 using CodeStandart.Utilities;
+using System.Linq;
 
 namespace CodeStandart.Analyzers
 {
@@ -37,6 +38,11 @@ namespace CodeStandart.Analyzers
 
             if (AnalyzerUtility.CheckIfHaveEmptyStringBefore(node) ||
                 AnalyzerUtility.CheckIfNodeFirstInBlock(node))
+            {
+                return;
+            }
+
+            if (node.Ancestors().Any(ancestor => ancestor.Kind() == SyntaxKind.SwitchSection))
             {
                 return;
             }

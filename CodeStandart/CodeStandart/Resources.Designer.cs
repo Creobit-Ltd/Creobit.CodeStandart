@@ -600,5 +600,32 @@ namespace CodeStandart {
                 return ResourceManager.GetString("CREO019_AnalyzerTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Тестовый анализатор.
+        /// </summary>
+        public static string Test_AnalyzerDescription {
+            get {
+                return ResourceManager.GetString("Test_AnalyzerDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Debug: &apos;{0}&apos;.
+        /// </summary>
+        public static string Test_AnalyzerMessageFormat {
+            get {
+                return ResourceManager.GetString("Test_AnalyzerMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Debug.
+        /// </summary>
+        public static string Test_AnalyzerTitle {
+            get {
+                return ResourceManager.GetString("Test_AnalyzerTitle", resourceCulture);
+            }
+        }
     }
 }

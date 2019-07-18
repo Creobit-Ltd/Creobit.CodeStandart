@@ -23,7 +23,7 @@ namespace CodeStandart.Analyzers
             DiagnosticId, Category, DiagnosticSeverity.Warning);
 
         private static ImmutableArray<string> CorrectPrefixes = ImmutableArray.Create
-            ("is", "has", "can", "do", "_is", "_has", "_can", "_do");
+            ("is", "has", "can", "do", "was", "_is", "_has", "_can", "_do", "_was");
 
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(_rule);
 
@@ -36,29 +36,28 @@ namespace CodeStandart.Analyzers
 
             var type = declaration.Type;
 
-            if (!type.ChildTokens().Any(token => token.Kind() == SyntaxKind.BoolKeyword)
+            var equalsValueClause = declarator.DescendantNodes().FirstOrDefault(node => node.Kind() == SyntaxKind.EqualsValueClause);
+
+            if (type.ChildTokens().Any(token => token.Kind() == SyntaxKind.BoolKeyword)
+                ||
+                (equalsValueClause is EqualsValueClauseSyntax
                 &&
-                !declaration.DescendantNodes().Any(node => node.Kind() == SyntaxKind.FalseLiteralExpression)
-                &&
-                !declaration.DescendantNodes().Any(node => node.Kind() == SyntaxKind.TrueLiteralExpression))
+                (equalsValueClause.ChildNodes().Any(node => node.Kind() == SyntaxKind.FalseLiteralExpression)
+                ||
+                equalsValueClause.ChildNodes().Any(node => node.Kind() == SyntaxKind.TrueLiteralExpression))))
             {
-                return;
+                var name = declarator.Identifier.ToString();
+
+                foreach (var prefix in CorrectPrefixes)
+                {
+                    if (name.ToLower().StartsWith(prefix.ToLower()))
+                        return;
+                }
+
+                context.ReportDiagnostic(Diagnostic.Create(_rule, declarator.GetLocation(), name));
             }
-
-            if (declaration.DescendantNodes().Any(node => node.Kind() == SyntaxKind.InvocationExpression))
-            {
-                return;
-            }
-
-            var name = declarator.Identifier.ToString();
-
-            foreach (var prefix in CorrectPrefixes)
-            {
-                if (name.ToLower().StartsWith(prefix.ToLower()))
-                    return;
-            }
-
-            context.ReportDiagnostic(Diagnostic.Create(_rule, declarator.GetLocation(), name));
+            
+          
         }
     }
 }

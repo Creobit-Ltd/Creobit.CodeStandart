@@ -14,7 +14,7 @@ namespace CodeStandart.Analyzers
         private const string Category = "Naming";
 
         private static DiagnosticDescriptor _rule = AnalyzerUtility.CreateDiagnosticDescriptor(
-            DiagnosticId, Category, DiagnosticSeverity.Error);
+            DiagnosticId, Category, DiagnosticSeverity.Info);
 
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(_rule);
 
